@@ -1,0 +1,49 @@
+<!-- payment.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Options</title>
+  <style>
+    body { font-family: Arial; padding: 20px; }
+    .payment-option { margin: 10px 0; }
+  </style>
+</head>
+<body>
+  <h1>Choose a Payment Option</h1>
+
+  <!-- Load product info -->
+  <div id="product-info"></div>
+
+  <div class="payment-option">
+    <input type="radio" name="payment" id="credit" checked>
+    <label for="credit">Credit/Debit Card</label>
+  </div>
+
+  <div class="payment-option">
+    <input type="radio" name="payment" id="paypal">
+    <label for="paypal">PayPal</label>
+  </div>
+
+  <div class="payment-option">
+    <input type="radio" name="payment" id="cod">
+    <label for="cod">Cash on Delivery</label>
+  </div>
+
+  <button onclick="proceedToPayment()">Proceed to Pay</button>
+
+  <script>
+    // Optional: Display product ID or info
+    const productId = sessionStorage.getItem('selectedProduct');
+    if (productId) {
+      document.getElementById('product-info').innerText = `Paying for Product ID: ${productId}`;
+    }
+
+    function proceedToPayment() {
+      const selectedOption = document.querySelector('input[name="payment"]:checked').id;
+      alert("You selected: " + selectedOption);
+      // Add your real payment logic here
+    }
+  </script>
+</body>
+</html>
